@@ -1,17 +1,25 @@
 import 'dart:io';
 
-var number1=25; //global scope
-main(){
-  int number2 = test1();
-  print("Result is ${number1 + number2}");
-  test("Done");
-}
-test(String command){  //passing argument
-  print(command);
+class Students{
+  var name;
+  var email;
+
+  Students(this.name, this.email); //constructor
+
+  test(){ //function
+    print("Hi $name");
+    print("Kindly check your mail $email");
+  }
+
 }
 
-int test1(){
-  print("Enter the value : ");
-  var number = int.parse(stdin.readLineSync()!); //local scope
-  return number;  //return type
+main(){
+
+  stdout.write("Enter the name : ");
+  var name = stdin.readLineSync(); //getting input
+  stdout.write("Enter the email : ");
+  var email = stdin.readLineSync();
+  Students details = Students(name, email);
+  details.test(); //calling function
+
 }
