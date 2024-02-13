@@ -1,25 +1,14 @@
-import 'dart:io';
 
-class Students{
-  var name;
-  var email;
-
-  Students(this.name, this.email); //constructor
-
-  test(){ //function
-    print("Hi $name");
-    print("Kindly check your mail $email");
-  }
-
+//async and await
+main() async{
+  print('Line1');
+  await display();
+  print('Line3');
+}
+Future<void> display() async{
+  Future.delayed(Duration(seconds: 5),()=>print('Line2'));
 }
 
-main(){
-
-  stdout.write("Enter the name : ");
-  var name = stdin.readLineSync(); //getting input
-  stdout.write("Enter the email : ");
-  var email = stdin.readLineSync();
-  Students details = Students(name, email);
-  details.test(); //calling function
-
-}
+//sync will wait for the data and execute
+//async will not wait for the data and complete the execution 1st
+//for async consists two class, i.e future and steam
